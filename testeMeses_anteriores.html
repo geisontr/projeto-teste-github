@@ -1,0 +1,124 @@
+<html>
+<head>	
+<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="jquery.maskMoney.js" />
+
+	<script>
+	
+					
+var d = new Date();
+var hour = d.getHours();
+var msg;
+
+	
+	
+	
+	var ano, mes;	
+	var mesref = 7;
+	var anoref = 2011;
+	//alert(anoref);
+	//alert(mesref);
+	
+	
+	/////////////////////
+	
+	data01 = "19/4/2018";
+	data02 = "18/7/2018";
+	
+	dataArr1 = data01.split("/");
+	mes01 = dataArr1[1];
+	dia01 = dataArr1[0];
+	ano01 = dataArr1[2];
+	
+	dataArr2 = data02.split("/");
+	mes02 = dataArr2[1];
+	dia02 = dataArr2[0];
+	ano02 = dataArr2[2];
+	
+	//var date1 = new Date("6/13/2018");
+	//var date2 = new Date("7/12/2018");
+	//var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+	//var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+	
+	//////////////////
+	var dataFull1 = new Date(mes01+"/"+dia01+"/"+ano01);
+	var dataFull2 = new Date(mes02+"/"+dia02+"/"+ano02);	
+	var timeDiff = Math.abs(dataFull2.getTime() - dataFull1.getTime());
+	var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+	///////////////////
+	
+			
+	document.write("DIA INICIAL >>>>>>> "+dia01+"<br/>");
+	document.write("MES INICIAL >>>>>>>"+mes01);
+	document.write("<br/><br/>DIA FINAL >>>>>>> "+dia02+"<br/>");
+	document.write("MES FINAL >>>>>>>"+mes02);
+	
+	
+	//document.write("<br/><br/><br/>DATA INICIAL >>>>> "+date1+"<br/>");
+	//document.write("DATA FINAL >>>>>>>"+date2);
+	
+	document.write("<br/><br/>"+diffDays + " dias");
+	
+	
+	/////////////////////
+	
+	
+	
+	
+	//document.write("Mes: "+mesref+"<br>");
+	//document.write("Ano: "+anoref+"<br><br><br>");
+	
+		for (x=1;x<19;x++){
+			
+			if (mesref > 1){
+				if(mesref<10){
+					mesref="0"+mesref;
+				}
+				
+				//document.write(mesref + "/" + anoref+"<br><br>");
+				mesref = mesref - 1;
+					
+				
+			 }else{		   		
+				if(mesref<10){
+					mesref="0"+mesref;
+				}			 
+			   //document.write(mesref + "/" + anoref+"<br><br>");
+			   anoref = anoref-1;
+			   mesref = 12;	
+			   
+			 }
+		}
+	
+	
+	
+	
+	
+	
+
+
+
+						
+						
+						
+		
+	</script>
+
+</head>
+<body>
+<p>Hoje e dia <script type="text/javascript">document.write(d.getDate() +" de " + d.getMonth() + " de " + d.getFullYear())</script>.</p> 
+<br/><br/><br/>
+<form>
+
+<input type="text" id="demo3" />
+		<script type="text/javascript">$("#demo3").maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});</script>
+		
+
+</form>
+
+
+
+		
+
+</body>
+</html>
